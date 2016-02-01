@@ -15,3 +15,9 @@ open your terminal and type these:
 3. `gulp`
 
 it will automatically start watching for `css` and `js`, to stop it press `ctrl + c`
+
+# Build
+to make production version (minified and concatinated)
+```
+gulp deploy
+```
