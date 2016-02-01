@@ -1,0 +1,247 @@
+@media only screen and (max-width: 1366px)
+  // SF-SECTION
+  .sf-section .fourth-sub
+    h1
+      font-size: 2em
+    h2
+      font-size: 1.5em
+    p
+      font-size: .8em
+  // INDEX: Exterior section
+  .pool-gallery
+    margin-top: 0
+    &.active
+      height: 440px
+  .event-gallery
+    &.active
+      height: 440px
+  // LUTRON: CASSETA
+  .caseta-section .sub-five
+    img
+      width: 220px
+  // LUTRON: Bedroom
+  .bedroom-switch-wrap
+    .bedroom-switch
+      transform: scale(0.8)
+      -webkit-transform: scale(0.8)
+      -moz-transform: scale(0.8)
+    .switch-colors
+      margin-top: 25px
+  .items-full-slider-strips
+    img
+      width: 125% !important
+
+@media only screen and (max-height: 736px)
+  .map-section
+    h2
+      font-size: 2em
+      margin-bottom: 20px
+    .pic
+      height: auto
+      max-height: 150px
+    .socials
+      display: none
+  .sf-section .fourth-sub
+    h1
+      font-size: 2em
+    h2
+      font-size: 1.5em
+    p
+      font-size: .8em
+  .service-custom-electrical
+    .btn-cont
+      bottom: 35%
+    .event-gallery img
+      width: 120%
+
+@media only screen and (max-width: 1024px)
+  // INDEX: Video section
+  .section-header-video
+    .index-about.active
+      margin-top: 0
+    .index-about p.quote
+      margin-top: 0
+    .about-btn
+      margin-top: 100px
+      display: none
+  // INDEX: Exterior section
+  .exterior-section
+    .ex-custom-electrics
+      width: 90%
+    .pool-gallery
+      margin-top: 0
+    .pool .exterior-circle
+      display: none
+  // COMMON: caption
+  .sf-section .fifth-sub .caption
+    opacity: 1
+    h2
+      font-size: 1.5em
+    p
+      font-size: .9em
+  // COMMON: fifth-sub
+  .sf-section .fifth-sub .item img
+    width: 150%
+    height: 100%
+  // COMMON: contacts
+  .news-letter-section
+    h2
+      font-size: 2em
+    input
+      width: 107px
+    .contact
+      display: none
+  // LUTRON
+  .bedroom-sentences
+    left: 53%
+    margin-left: 0
+    top: 430px
+  .bedroom-section
+    .elements
+      height: inherit
+  .bedroom-switch
+    .switch-bar
+      +transition(.5s)
+  .bedroom-images .fade-in
+    +transition(.5s)
+  .bedroom-section.max
+    .switch-bar
+      height: 100%
+    .bedroom-images .fade-in
+      +transition(.5s)
+      opacity: 1
+  // LUTRON: CASSETA
+  .caseta-section .sub-five
+    .device.iphone
+      left: 80px
+    .device.iphone, .device.android
+      position: relative
+      top: 50px
+    img
+      width: 140px
+    .device.iwatch
+      position: relative
+      top: 60px
+      left: -50px
+    .device.android
+      right: 15px
+  // DEVICES
+  .sf-section
+    .second-sub
+      &:before
+        background-size: cover
+      .pic img
+        width: 90%
+      &.parallaxing:before
+        transform: translateY(0)
+        -webkit-transform: translateY(0)
+        -moz-transform: translateY(0)
+    .fourth-sub .item-inner
+      padding: 2em 2em
+    .second-sub .left, .second-sub .right
+      transform: translateY(20%)
+      -webkit-transform: translateY(20%)
+      -moz-transform: translateY(20%)
+  .devices-content
+    .pic
+      margin-top: 15%
+  // EVENT LIGHTING
+  .service-custom-electrical
+    .fade-in-text, .handle
+      display: none !important
+    .event-gallery.active
+      height: 310px
+    .images
+      .fade-in
+        overflow: visible
+        width: 100%
+        opacity: 0
+        &.full
+          opacity: 1
+      .title-green
+        color: #fff
+      &.slide-left
+        .fade-in, .default
+          background-position: center
+    .event-gal-wrap.active:before
+      background: none
+  // PALL
+  .pall-slider .switch
+    position: absolute
+    width: 230px
+  .pall-nav .left a
+    width: 60px
+    img
+      width: 100%
+  .event-gallery
+    width: 750px
+    margin-left: 20%
+  .service-custom-electrical .event-gallery.active
+    height: 400px
+
+@media only screen and (orientation: portrait)
+  // INDEX: Exterior section
+  .exterior-nav li
+    margin: 1em .5em
+  .exterior-section
+    .ex-custom-electrics
+      width: 90%
+      height: 350px
+    .pool-gallery
+      margin-top: 0
+    .pool .exterior-circle
+      display: none
+  .ex-custom-electrics .left
+    font-size: .7em
+  // INDEX: Contacts
+  .news-letter-section
+    textarea
+      width: 90%
+    input
+      width: 90%
+      margin-bottom: 20px
+    .news-text > h2
+      text-align: right
+      padding-right: 1em
+    form
+      height: 300px
+  // LUTRON: Bedroom
+  .bedroom-images > div
+    background-position: center
+  .bedroom-sentences
+    top: 245px
+    left: 48%
+    width: 300px
+  // LUTRON: Palladium
+  .pall-nav .left
+    width: 50%
+    margin-top: 10px
+  .pall-nav .right
+    top: -200px
+    width: 55%
+  .pall-slider .switch
+    width: 190px
+  .caseta-section .sub-five .device
+    margin: 0 2em
+  .caseta-section .sub-five .device.iwatch
+    left: 30px
+  .shading-more
+    top: 300px
+  .sf-section .fifth-sub .item img
+    width: 230%
+  // SMART DEVICES
+  .smart-images div
+    background-position: center
+  .event-gallery
+    margin-left: 1%
+  .sf-section
+    .second-sub .left, .second-sub .right
+      transform: translateY(50%)
+      -webkit-transform: translateY(50%)
+      -moz-transform: translateY(50%)
+    .second-sub p
+      font-size: 1em
+  .devices-content
+    .pic
+      margin-top: 30%
+
