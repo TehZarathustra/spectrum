@@ -1,6 +1,12 @@
 {
-  "name": "project-name",
+  "name": "spectrum",
   "version": "0.1.0",
+  "description": "spectrum Front End",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TehZarathustra/spectrum"
+  },
+  "author": "Vladimir Prusakov <tehzarathustra@gmail.com>",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
