@@ -21,3 +21,4 @@ to make production version (minified and concatinated)
 ```
 gulp deploy
 ```
+it will create `dist/` folder in the same directory with `app/`
