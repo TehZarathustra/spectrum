@@ -1,4 +1,4 @@
-# Spectrum
+# spectrum front-end
 make sure that you have [node.js](https://nodejs.org/en/) and [ruby](https://www.ruby-lang.org/en/downloads/) installed
 
 # Install (only once)
