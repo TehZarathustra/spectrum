@@ -3,3 +3,4 @@ node_modules
 app/components
 .sass-cache
 .DS_Store
+app/js/main.min.js
