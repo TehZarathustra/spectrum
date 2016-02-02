@@ -42,7 +42,7 @@
     +transition(.3s)
     &:hover, &.active, &.active-add
       text-shadow: 0 0 15px #fff
-      opacity: 1
+      opacity: 1 !important
       &:before
         width: 100%
         opacity: 1
@@ -59,6 +59,10 @@
       height: 1px
       background: #fff
       box-shadow: 0 0 30px 8px #fff
+
+  &.dimmed
+    a
+      opacity: .3
 
 .exterior-images
   div

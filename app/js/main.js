@@ -247,12 +247,13 @@
 				} else {
 					$(DOM.room+' .'+el).addClass('active');
 				}
+				$('.exterior-nav').addClass('dimmed');
 				$('.exterior-lamps').addClass('disabled');
 				$(event.target).find('.exterior-circle').fadeOut(200);
 			}, function() {
 				$(DOM.room+' .'+$(event.target).context.className).removeClass('active');
 				$(DOM.exterior).removeClass('active');
-
+				$('.exterior-nav').removeClass('dimmed');
 				$("[data-enav='" + $(event.target).context.className + "']").removeClass('active');
 				$('.exterior-lamps').removeClass('disabled');
 				$(event.target).find('.exterior-circle').fadeIn(200);
@@ -261,6 +262,7 @@
 			// exterior nav click
 			$('.exterior-nav a').bind(mobileCheck ? 'touchend' : 'click', function(e){
 				var el = $(this).data('enav');
+
 				if (el == 'ex-electric') {
 					e.preventDefault();
 
@@ -285,6 +287,7 @@
 
 			// exterior nav hover
 			$('.exterior-nav a').hover(function() {
+				$('.exterior-nav').addClass('dimmed');
 				$('.exterior-section h2').fadeOut();
 				var el = $(this).data('enav');
 
@@ -299,6 +302,7 @@
 			}, function() {
 				$(DOM.room+' .'+$(this).data('enav')).removeClass('active');
 				$(DOM.exterior).removeClass('active');
+				$('.exterior-nav').removeClass('dimmed');
 				$('.exterior-lamps').removeClass('disabled');
 				$(event.target).find('.pulse').fadeIn(200);
 			}
