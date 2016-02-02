@@ -227,7 +227,7 @@
 				$('.e-lamp').addClass('active');
 				$('.pool-colors-wrap').removeClass('active');
 				setTimeout(function() {
-					$('.exterior-circle').addClass('active');
+					$('.pulse').addClass('active');
 				},200);
 			});
 
@@ -249,14 +249,14 @@
 				}
 				$('.exterior-nav').addClass('dimmed');
 				$('.exterior-lamps').addClass('disabled');
-				$(event.target).find('.exterior-circle').fadeOut(200);
+				$(event.target).find('.pulse').fadeOut(200);
 			}, function() {
 				$(DOM.room+' .'+$(event.target).context.className).removeClass('active');
 				$(DOM.exterior).removeClass('active');
 				$('.exterior-nav').removeClass('dimmed');
 				$("[data-enav='" + $(event.target).context.className + "']").removeClass('active');
 				$('.exterior-lamps').removeClass('disabled');
-				$(event.target).find('.exterior-circle').fadeIn(200);
+				$(event.target).find('.pulse').fadeIn(200);
 			});
 
 			// exterior nav click
@@ -267,10 +267,15 @@
 					e.preventDefault();
 
 					$('.ex-custom-electrics').show(1000);
-					$('.exterior-circle').removeClass('active');
+					$('.pulse').removeClass('active');
 					$('.exterior-bgs').addClass('blur');
 					$('.e-lamp').removeClass('active');
 					$('.exterior-nav li:first-child a').addClass('active-add');
+				}
+
+				if (el == 'ex-pool') {
+					e.preventDefault();
+					$('.pool').trigger(mobileCheck ? 'touchend' : 'click');
 				}
 			});
 
@@ -293,6 +298,8 @@
 
 				if (el == 'ex-bar') {
 					$(DOM.exterior).addClass('active');
+				} else if (el == 'pool') {
+					$('.color_1').addClass('active');
 				} else {
 					$(DOM.room+' .'+el).addClass('active');
 				}
@@ -300,6 +307,7 @@
 				$('.exterior-lamps').addClass('disabled');
 				$(event.target).find('.pulse').fadeOut(200);
 			}, function() {
+				$('.color_1').removeClass('active');
 				$(DOM.room+' .'+$(this).data('enav')).removeClass('active');
 				$(DOM.exterior).removeClass('active');
 				$('.exterior-nav').removeClass('dimmed');
