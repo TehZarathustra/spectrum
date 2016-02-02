@@ -273,7 +273,7 @@
 					$('.exterior-nav li:first-child a').addClass('active-add');
 				}
 
-				if (el == 'ex-pool') {
+				if (el == 'pool') {
 					e.preventDefault();
 					$('.pool').trigger(mobileCheck ? 'touchend' : 'click');
 				}
