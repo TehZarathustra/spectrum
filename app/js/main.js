@@ -215,7 +215,11 @@
 				} else if (el == 'ex-lutron') {
 					$.fn.fullpage.moveTo('fifthPage', 0);
 				} else if (el == 'ex-electric') {
-					$('.exterior-nav a').trigger(mobileCheck ? 'touchend' : 'click');
+					$('.ex-custom-electrics').show(1000);
+					$('.pulse').removeClass('active');
+					$('.exterior-bgs').addClass('blur');
+					$('.e-lamp').removeClass('active');
+					$('.exterior-nav li:first-child a').addClass('active-add');
 				}
 			});
 
@@ -272,12 +276,23 @@
 					$('.e-lamp').removeClass('active');
 					$('.exterior-nav li:first-child a').addClass('active-add');
 				}
-
-				if (el == 'pool') {
-					e.preventDefault();
-					$('.pool').trigger(mobileCheck ? 'touchend' : 'click');
-				}
 			});
+
+			$('.pool-nav').bind('click', function(e) {
+				e.preventDefault();
+				if (!mobileCheck) {
+					$('.pool-colors-wrap').addClass('active');
+					$(DOM.poolControls).addClass('active');
+					$('.pool-gallery').addClass('active');
+					$('.exterior-pool > div').removeClass('active overpool');
+					setTimeout(function() {
+						$('.pool-more').addClass('active');
+					},800);
+					$('.scroll-down.contact-us').fadeOut(100);
+					poolState = 'open';
+					$('.exterior-pool').addClass('overpool');
+				}
+			})
 
 			if (localStorage.electric) {
 				setTimeout(function() {
