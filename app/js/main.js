@@ -220,7 +220,7 @@
 			});
 
 			// close custom electrics
-			$('.close-default').bind(mobileCheck ? 'touchend' : 'click', function(){
+			$('.c-el-overlay').bind(mobileCheck ? 'touchend' : 'click', function(){
 				closeElectric();
 			});
 
