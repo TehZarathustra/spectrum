@@ -221,14 +221,7 @@
 
 			// close custom electrics
 			$('.close-default').bind(mobileCheck ? 'touchend' : 'click', function(){
-				$('.exterior-nav li:first-child a').removeClass('active-add');
-				$('.ex-custom-electrics').hide(1000);
-				$('.exterior-bgs').removeClass('blur');
-				$('.e-lamp').addClass('active');
-				$('.pool-colors-wrap').removeClass('active');
-				setTimeout(function() {
-					$('.pulse').addClass('active');
-				},200);
+				closeElectric();
 			});
 
 			// click return
@@ -265,7 +258,7 @@
 
 				if (el == 'ex-electric') {
 					e.preventDefault();
-
+					closePool();
 					openElectric();
 				}
 			});
@@ -273,20 +266,37 @@
 			$('.pool-nav').bind('click', function(e) {
 				e.preventDefault();
 				if (!mobileCheck) {
-					$('.pool-colors-wrap').addClass('active');
-					$(DOM.poolControls).addClass('active');
-					$('.pool-gallery').addClass('active');
-					$('.exterior-pool > div').removeClass('active overpool');
-					setTimeout(function() {
-						$('.pool-more').addClass('active');
-					},800);
-					$('.scroll-down.contact-us').fadeOut(100);
-					poolState = 'open';
-					$('.exterior-pool').addClass('overpool');
+					closeElectric();
+					openPool();
 				}
 			})
 
-			// electric helper
+			// pool helpers
+
+			function openPool() {
+				$('.pool-colors-wrap').addClass('active');
+				$(DOM.poolControls).addClass('active');
+				$('.pool-gallery').addClass('active');
+				$('.exterior-pool > div').removeClass('active overpool');
+				setTimeout(function() {
+					$('.pool-more').addClass('active');
+				},800);
+				$('.scroll-down.contact-us').fadeOut(100);
+				poolState = 'open';
+				$('.exterior-pool').addClass('overpool');
+			}
+
+			function closePool() {
+				$(DOM.poolControls).removeClass('active');
+				$('.pool-gallery').removeClass('active');
+				$('.pool-more').removeClass('active');
+				$('.pool-colors-wrap').removeClass('active');
+				$('.exterior-pool').removeClass('overpool');
+				$('.exterior-pool > div').removeClass('active');
+				poolState = 'closed';
+			}
+
+			// electric helpers
 			function openElectric() {
 				$('.ex-custom-electrics').show(1000);
 				$('.pulse').removeClass('active');
@@ -294,6 +304,17 @@
 				$('.e-lamp').removeClass('active');
 				$('.exterior-nav li:first-child a').addClass('active-add');
 				localStorage.removeItem('electric');
+			}
+
+			function closeElectric() {
+				$('.exterior-nav li:first-child a').removeClass('active-add');
+				$('.ex-custom-electrics').hide(1000);
+				$('.exterior-bgs').removeClass('blur');
+				$('.e-lamp').addClass('active');
+				$('.pool-colors-wrap').removeClass('active');
+				setTimeout(function() {
+					$('.pulse').addClass('active');
+				},200);
 			}
 
 			if (localStorage.electric) {
@@ -357,13 +378,7 @@
 			}
 
 			$('.exterior-pool').bind(mobileCheck ? 'touchend' : 'click', function(){
-				$(DOM.poolControls).removeClass('active');
-				$('.pool-gallery').removeClass('active');
-				$('.pool-more').removeClass('active');
-				$('.pool-colors-wrap').removeClass('active');
-				$('.exterior-pool').removeClass('overpool');
-				$('.exterior-pool > div').removeClass('active');
-				poolState = 'closed';
+				closePool();
 			});
 
 			// pool colors controls
