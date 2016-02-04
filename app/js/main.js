@@ -215,11 +215,7 @@
 				} else if (el == 'ex-lutron') {
 					$.fn.fullpage.moveTo('fifthPage', 0);
 				} else if (el == 'ex-electric') {
-					$('.ex-custom-electrics').show(1000);
-					$('.pulse').removeClass('active');
-					$('.exterior-bgs').addClass('blur');
-					$('.e-lamp').removeClass('active');
-					$('.exterior-nav li:first-child a').addClass('active-add');
+					openElectric();
 				}
 			});
 
@@ -270,11 +266,7 @@
 				if (el == 'ex-electric') {
 					e.preventDefault();
 
-					$('.ex-custom-electrics').show(1000);
-					$('.pulse').removeClass('active');
-					$('.exterior-bgs').addClass('blur');
-					$('.e-lamp').removeClass('active');
-					$('.exterior-nav li:first-child a').addClass('active-add');
+					openElectric();
 				}
 			});
 
@@ -294,10 +286,19 @@
 				}
 			})
 
+			// electric helper
+			function openElectric() {
+				$('.ex-custom-electrics').show(1000);
+				$('.pulse').removeClass('active');
+				$('.exterior-bgs').addClass('blur');
+				$('.e-lamp').removeClass('active');
+				$('.exterior-nav li:first-child a').addClass('active-add');
+				localStorage.removeItem('electric');
+			}
+
 			if (localStorage.electric) {
 				setTimeout(function() {
-					$('.exterior-nav a').trigger(mobileCheck ? 'touchend' : 'click');
-					localStorage.removeItem('electric');
+					openElectric();
 				},2000);
 			}
 
