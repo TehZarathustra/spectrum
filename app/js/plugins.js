@@ -158,7 +158,7 @@
 					$('.second-sub').removeClass('parallaxing')
 				}
 
-				console.log(this)
+				// console.log(this)
 			},
 
 			afterLoad: function(anchorLink, index) {
@@ -225,27 +225,13 @@
 					},500);
 
 					$('.exterior-section').removeClass('locked-section');
+					$.fn.fullpage.setAllowScrolling(false, 'up');
 				}
 
-				if (index == 5) {
-					$('.intuitive-section .inner').addClass('animated fadeIn');
-				}
-
-				if (index == 6) {
-					$('.personalize-section .left').addClass('fadeInLeft');
-					$('.personalize-section .right').addClass('fadeInRight');
+				if (index == 3 && $('.exterior-section').length) {
+					$.fn.fullpage.setAllowScrolling(true, 'up');
 				}
 			}
-		});
-
-		$('.model-btn').bind(mobileCheck ? 'touchend' : 'click', function(e){
-			e.preventDefault();
-			$.fn.fullpage.moveSlideRight();
-		});
-
-		$('.back-btn').bind(mobileCheck ? 'touchend' : 'click', function(e){
-			e.preventDefault();
-			$.fn.fullpage.moveSlideLeft();
 		});
 
 		// header video
@@ -287,15 +273,15 @@
 				var scene = new ScrollMagic.Scene({triggerElement: ".elements", duration: 4000})
 				.addTo(controller)
 					.on("update", function (e) {
-						console.log(e.target.controller().info("scrollDirection"));
+						// console.log(e.target.controller().info("scrollDirection"));
 					})
 					.on("enter leave", function (e) {
-						console.log(e.type == "enter" ? "inside" : "outside");
+						// console.log(e.type == "enter" ? "inside" : "outside");
 						bedroomBar.css('height', '100%');
 						sentences.removeClass('active');
 					})
 					.on("start end", function (e) {
-						console.log(e.type == "start" ? "top" : "bottom");
+						// console.log(e.type == "start" ? "top" : "bottom");
 						bedroomBar.css('height', '100%');
 					})
 					.on("progress", function (e) {
@@ -420,13 +406,13 @@
 				var scene = new ScrollMagic.Scene({triggerElement: parent, duration: 1100})
 				.addTo(controller)
 					.on("update", function (e) {
-						console.log(e.target.controller().info("scrollDirection"));
+						// console.log(e.target.controller().info("scrollDirection"));
 					})
 					.on("enter leave", function (e) {
-						console.log(e.type == "enter" ? "inside" : "outside");
+						// console.log(e.type == "enter" ? "inside" : "outside");
 					})
 					.on("start end", function (e) {
-						console.log(e.type == "start" ? "top" : "bottom");
+						// console.log(e.type == "start" ? "top" : "bottom");
 					})
 					.on("progress", function (e) {
 						var offset = e.progress.toFixed(3) * 100;
