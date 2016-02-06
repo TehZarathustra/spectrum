@@ -802,6 +802,7 @@
 					pic.removeClass('active');
 					item.removeClass('active');
 					close.addClass('hold');
+					$('.switch-wrap').fadeIn();
 				},1000);
 			}
 
@@ -821,6 +822,7 @@
 						item.addClass('active');
 						item.find('.left').addClass('fadeInLeft');
 						item.find('.right').addClass('fadeInRight');
+						$('.switch-wrap').fadeOut();
 						setTimeout(function() {
 							close.removeClass('hold');
 							setTimeout(function() {
