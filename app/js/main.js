@@ -713,6 +713,7 @@
 
 				$('.m-close, .page-overlay').bind(mobileCheck ? 'touchend' : 'click', function(){
 					$('.page-overlay, .pops').fadeOut(500);
+					$.fn.fullpage.setAllowScrolling(true);
 				});
 
 				// pops duplicate
@@ -756,19 +757,24 @@
 				function add_modal(trigger,modal,close,pic) {
 					close = (typeof close === 'undefined') ? false : true;
 					pic = (typeof pic === 'undefined') ? false : true;
-					$(''+trigger+'').bind(mobileCheck ? 'touchend' : 'click', function(e){
+					$(''+trigger+'').bind(mobileCheck ? 'touchend' : 'click', function(e) {
+
 						if ($(event.target).data('gtype') == 'owl') {
 							owlGlobal = true;
 						} else {
 							owlGlobal = false;
 							imageGlobal = $(event.target);
 						}
+
 						close == true ? $('.pops').fadeOut(100) : close;
 						if (pic == true) {
 							var image = $(this).find('img').attr('src');
 							$('.image-pop img').attr('src', image);
 						}
+
 						e.preventDefault();
+
+						$.fn.fullpage.setAllowScrolling(false);
 						$('.page-overlay, .'+modal+'').fadeIn(400);
 						jQuery('.'+modal+'').center();
 						$('.image-pop').center();
