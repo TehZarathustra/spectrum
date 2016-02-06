@@ -154,11 +154,16 @@
 					$('.second-sub').removeClass('parallaxing')
 				}
 
-				// console.log(this)
 			},
 
 			afterLoad: function(anchorLink, index) {
 				var loadedSection = $(this);
+
+				if (loadedSection.hasClass('map-section')) {
+					$('.scroll-down').fadeOut();
+				} else {
+					$('.scroll-down').fadeIn();
+				}
 
 				var myVideo = document.getElementById("video1") || document.getElementById("video-fourth");
 
