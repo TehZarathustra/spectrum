@@ -527,39 +527,43 @@
 		// video controls
 		(function() {
 			var elPlay = $('.playBut'),
+				elTrigger = $('.lutron-fourth'),
 				elVideo = $('.mb_YTPlayer'),
 				overlay = $('.background-overlay'),
 				heading = elVideo.find('.heading-row');
 
-			elPlay.bind(mobileCheck ? 'touchend' : 'click', function(e){
+			elTrigger.bind(mobileCheck ? 'touchend' : 'click' , function(e) {
 				e.preventDefault();
-				if (!/Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-					if (!$(this).hasClass('active')) {
-						elVideo.YTPGetPlayer().seekTo(0);
-						elVideo.YTPPlay();
-						elVideo.YTPUnmute();
-						elVideo.addClass('playing');
-						overlay.css('background-color', 'transparent');
-						elPlay.addClass('active');
-						heading.addClass('animated fadeOutUp');
+
+				if (!$(e.target).hasClass('btn')) {
+					if (!mobileCheck) {
+						if (!elPlay.hasClass('active')) {
+							elVideo.YTPGetPlayer().seekTo(0);
+							elVideo.YTPPlay();
+							elVideo.YTPUnmute();
+							elVideo.addClass('playing');
+							overlay.css('background-color', 'transparent');
+							elPlay.addClass('active');
+							heading.addClass('animated fadeOutUp');
+						} else {
+							elVideo.YTPMute();
+							elVideo.YTPPause();
+							overlay.removeAttr('style');
+							elPlay.removeClass('active');
+							elVideo.removeClass('playing');
+							heading.removeClass('fadeOutUp');
+							heading.addClass('fadeInDown');
+						}
 					} else {
-						elVideo.YTPMute();
-						elVideo.YTPPause();
-						overlay.removeAttr('style');
-						elPlay.removeClass('active');
-						elVideo.removeClass('playing');
-						heading.removeClass('fadeOutUp');
-						heading.addClass('fadeInDown');
+						var url = 'https:'+$('#event-video')
+							.data('property')
+							.split(',')[0]
+							.split(':')[2]
+							.slice(0, -1);
+						window.open(url, '_blank').focus();
 					}
-				} else {
-					var url = 'https:'+$('#event-video')
-						.data('property')
-						.split(',')[0]
-						.split(':')[2]
-						.slice(0, -1);
-					window.open(url, '_blank').focus();
 				}
-			});
+			})
 		})();
 
 		// news letter bg's
