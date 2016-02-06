@@ -130,10 +130,6 @@
 					$('.lutron').removeClass('fadeInDown');
 				}
 
-				if (index == 1 && $('.service-custom-electrical').length) {
-					$('.service-custom-electrical .images').addClass('tran slide-left');
-				}
-
 				if (nextIndex == 1 && $('.service-custom-electrical').length) {
 					$('.service-custom-electrical .images').removeClass('slide-left');
 					setTimeout(function() {
@@ -176,14 +172,12 @@
 				}
 
 				if (index == 1 && $('.service-custom-electrical')) {
+					$('.service-custom-electrical .fade-in, .service-custom-electrical .handle')
+					.addClass(mobileCheck ? 'tran' : 'tran start');
 					setTimeout(function() {
 						$('.service-custom-electrical .fade-in, .service-custom-electrical .handle')
-						.addClass(mobileCheck ? 'tran' : 'tran start');
-						setTimeout(function() {
-							$('.service-custom-electrical .fade-in, .service-custom-electrical .handle')
-								.removeClass('tran');
-						},1000);
-					},800);
+							.removeClass('tran');
+					},1500);
 				}
 
 				if ($('.devices-list').length) {
