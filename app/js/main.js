@@ -284,6 +284,7 @@
 				$('.scroll-down.contact-us').fadeOut(100);
 				poolState = 'open';
 				$('.exterior-pool').addClass('overpool');
+				$.fn.fullpage.setAllowScrolling(false);
 			}
 
 			function closePool() {
@@ -294,6 +295,7 @@
 				$('.exterior-pool').removeClass('overpool');
 				$('.exterior-pool > div').removeClass('active');
 				poolState = 'closed';
+				$.fn.fullpage.setAllowScrolling(true);
 			}
 
 			// electric helpers
@@ -304,6 +306,7 @@
 				$('.e-lamp').removeClass('active');
 				$('.exterior-nav li:first-child a').addClass('active-add');
 				localStorage.removeItem('electric');
+				$.fn.fullpage.setAllowScrolling(false);
 			}
 
 			function closeElectric() {
@@ -315,6 +318,7 @@
 				setTimeout(function() {
 					$('.pulse').addClass('active');
 				},200);
+				$.fn.fullpage.setAllowScrolling(true);
 			}
 
 			if (localStorage.electric) {
@@ -358,16 +362,7 @@
 
 			$('.pool').bind('click', function(){
 				if (!mobileCheck) {
-					$('.pool-colors-wrap').addClass('active');
-					$(DOM.poolControls).addClass('active');
-					$('.pool-gallery').addClass('active');
-					$('.exterior-pool > div').removeClass('active overpool');
-					setTimeout(function() {
-						$('.pool-more').addClass('active');
-					},800);
-					$('.scroll-down.contact-us').fadeOut(100);
-					poolState = 'open';
-					$('.exterior-pool').addClass('overpool');
+					openPool();
 				}
 			});
 
@@ -402,8 +397,9 @@
 				hideBtn = $('.hide-tabs'),
 				call = $('.call-to-actions');
 
-			btn.bind(mobileCheck ? 'touchend' : 'click', function(e){
+			btn.bind(mobileCheck ? 'touchend' : 'click', function(e) {
 				e.preventDefault();
+				$.fn.fullpage.setAllowScrolling(false);
 				btn.addClass('animated fadeOutUp');
 				$('.event-gallery').addClass('active');
 				$('.event-gal-wrap').addClass('active');
@@ -411,6 +407,7 @@
 
 			$('.event-gal-wrap').bind(mobileCheck ? 'touchend' : 'click', function(){
 				btn.removeClass('animated');
+				$.fn.fullpage.setAllowScrolling(true);
 				$('.event-gallery').removeClass('active');
 				$('.event-gal-wrap').removeClass('active');
 			})
@@ -814,6 +811,7 @@
 					close.addClass('hold');
 					$('.switch-wrap').fadeIn();
 				},1000);
+				$.fn.fullpage.setAllowScrolling(true);
 			}
 
 			nav.bind(mobileCheck ? 'touchend' : 'click', function(event){
@@ -840,6 +838,7 @@
 							},350);
 						},350);
 					},650);
+					$.fn.fullpage.setAllowScrolling(false);
 				}
 			});
 
