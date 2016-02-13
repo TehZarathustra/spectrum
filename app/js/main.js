@@ -8,6 +8,7 @@
 		} else {
 			mobileCheck = false;
 		};
+
 		// light switch
 		(function() {
 			var el = $('#light-switch'),
@@ -29,6 +30,23 @@
 					handle = $('.handle'),
 					bg = $('.service-custom-electrical .fade-in');
 				el.toggleClass('active');
+				eventToggle(el,handle,bg);
+			});
+
+			$('.switch-button-devices').bind(mobileCheck ? 'touchend' : 'click', function(){
+			  el = $(this);
+			  switchToggle(el);
+			});
+
+			if (mobileCheck) {
+				setTimeout(function() {
+					$('.switch-button').toggleClass('active');
+					eventToggle($('.switch-button'),$('.handle'),$('.service-custom-electrical .fade-in'));
+					switchToggle($('.switch-button-devices'));
+				},2000);
+			}
+
+			function eventToggle(el,handle,bg) {
 				if (el.hasClass('active')) {
 					handle.fadeOut(300);
 					bg.addClass('tran full');
@@ -43,10 +61,9 @@
 						}, 1500);
 					}
 				}
-			});
+			}
 
-			$('.switch-button-devices').bind(mobileCheck ? 'touchend' : 'click', function(){
-			  el = $(this);
+			function switchToggle(el) {
 			  if (!el.hasClass('active')) {
 			    el.addClass('active');
 			    aEld.addClass('nighted');
@@ -54,7 +71,7 @@
 			    el.removeClass('active');
 			    aEld.removeClass('nighted');
 			  }
-			});
+			}
 		})();
 
 		// fade-in-text
@@ -664,7 +681,17 @@
 				}
 			});
 
+			if (mobileCheck) {
+				setTimeout(function() {
+					bedroomToggle();
+				},2000);
+			}
+
 			bg.bind('touchend', function(){
+				bedroomToggle();
+			});
+
+			function bedroomToggle() {
 				if (!$('.bedroom-section').hasClass('max')) {
 					$('.bedroom-section').addClass('max');
 					$('.switch-colors .black').addClass('fadeInLeft');
@@ -684,7 +711,7 @@
 						$('.switch-colors div').removeClass('fadeOutRight');
 					},1000);
 				}
-			});
+			}
 		})();
 
 		// modals
