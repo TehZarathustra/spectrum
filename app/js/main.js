@@ -226,7 +226,7 @@
 				var taps = 0,
 					temp;
 
-				$(DOM.area).bind('click', function(e) {
+				$(DOM.area).bind('touchend', function(e) {
 					e.preventDefault();
 					var el = $(event.target).context.className;
 
