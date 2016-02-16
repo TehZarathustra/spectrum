@@ -209,32 +209,7 @@
 					+'<div class="e-lamp e-lamp_5"></div')
 			}
 
-			// click
-			$(DOM.area).bind(mobileCheck ? 'touchend' : 'click', function() {
-				// event.preventDefault();
-				var el = $(event.target).context.className;
-
-				if (el == 'ex-devices') {
-					$('.devices-list').addClass('animated fadeIn');
-					setTimeout(function() {
-						$('.sonos').addClass('fadeInDown');
-
-						setTimeout(function() {
-							$('.tv').addClass('fadeInDown');
-						},600);
-						setTimeout(function() {
-							$('.apple-tv').addClass('fadeIn');
-							$('.nest').addClass('fadeIn');
-						},1000);
-					},1200);
-				} else if (el == 'ex-bar') {
-					$.fn.fullpage.moveTo('fourthPage', 0);
-				} else if (el == 'ex-lutron') {
-					$.fn.fullpage.moveTo('fifthPage', 0);
-				} else if (el == 'ex-electric') {
-					openElectric();
-				}
-			});
+			
 
 			// close custom electrics
 			$('.c-el-overlay').bind(mobileCheck ? 'touchend' : 'click', function(){
@@ -246,28 +221,100 @@
 				$.fn.fullpage.moveTo('secondPage', 1);
 			});
 
-			// area hover
-			$(DOM.area).hover(function(event) {
-				var el = $(event.target).context.className;
+			// area events PAD
+			if (mobileCheck) {
+				var taps = 0,
+					temp;
 
-				$("[data-enav='" + el + "']").addClass('active');
+				$(DOM.area).bind('click', function(e) {
+					e.preventDefault();
+					var el = $(event.target).context.className;
 
-				if (el == 'ex-bar') {
-					$(DOM.exterior).addClass('active');
-				} else {
-					$(DOM.room+' .'+el).addClass('active');
+					if (temp != el) {
+						taps = 0;
+					} else if (taps > 2) {
+						taps = 1;
+					}
+
+					exteriorReset(temp);
+
+					temp = el;
+
+					taps++;
+
+					exteriorOnHover(el);
+
+					console.log(temp, el, taps);
+
+					if (taps === 2 && temp === el) {
+						switch(el) {
+							case 'ex-electric': openElectric(); break;
+							case 'pool': openPool(); break;
+							default: window.location.href = $('.' + el).attr('href');
+						}
+					}
+				})
+			}
+
+			// area events DESKTOP
+			if (!mobileCheck) {
+
+				// click
+				$(DOM.area).bind('click', function() {
+					// event.preventDefault();
+					var el = $(event.target).context.className;
+
+					if (el == 'ex-devices') {
+						$('.devices-list').addClass('animated fadeIn');
+						setTimeout(function() {
+							$('.sonos').addClass('fadeInDown');
+
+							setTimeout(function() {
+								$('.tv').addClass('fadeInDown');
+							},600);
+							setTimeout(function() {
+								$('.apple-tv').addClass('fadeIn');
+								$('.nest').addClass('fadeIn');
+							},1000);
+						},1200);
+					} else if (el == 'ex-bar') {
+						$.fn.fullpage.moveTo('fourthPage', 0);
+					} else if (el == 'ex-lutron') {
+						$.fn.fullpage.moveTo('fifthPage', 0);
+					} else if (el == 'ex-electric') {
+						openElectric();
+					}
+				});
+
+				$(DOM.area).hover(function(event) {
+					var el = $(event.target).context.className;
+					exteriorOnHover(el);
+				}, function() {
+					exteriorReset(el);
+				});
+
+				function exteriorOnHover(el) {
+					$("[data-enav='" + el + "']").addClass('active');
+
+					if (el == 'ex-bar') {
+						$(DOM.exterior).addClass('active');
+					} else {
+						$(DOM.room+' .'+el).addClass('active');
+					}
+					$('.exterior-nav').addClass('dimmed');
+					$('.exterior-lamps').addClass('disabled');
+					// $(event.target).find('.pulse').fadeOut(200);
 				}
-				$('.exterior-nav').addClass('dimmed');
-				$('.exterior-lamps').addClass('disabled');
-				$(event.target).find('.pulse').fadeOut(200);
-			}, function() {
-				$(DOM.room+' .'+$(event.target).context.className).removeClass('active');
-				$(DOM.exterior).removeClass('active');
-				$('.exterior-nav').removeClass('dimmed');
-				$("[data-enav='" + $(event.target).context.className + "']").removeClass('active');
-				$('.exterior-lamps').removeClass('disabled');
-				$(event.target).find('.pulse').fadeIn(200);
-			});
+
+				function exteriorReset(el) {
+					$(DOM.room+' .'+el).removeClass('active');
+					$(DOM.exterior).removeClass('active');
+					$('.exterior-nav').removeClass('dimmed');
+					$("[data-enav='" + el + "']").removeClass('active');
+					$('.exterior-lamps').removeClass('disabled');
+					// $(event.target).find('.pulse').fadeIn(200);
+				}
+			}
 
 			// exterior nav click
 			$('.exterior-nav a').bind(mobileCheck ? 'touchend' : 'click', function(e){
@@ -389,7 +436,7 @@
 				});
 			}
 
-			$('.exterior-pool').bind(mobileCheck ? 'touchend' : 'click', function(){
+			$('.exterior-pool').bind('touchend click', function(){
 				closePool();
 			});
 
