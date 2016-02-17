@@ -242,6 +242,10 @@
 
 					taps++;
 
+					if (el = 'pool') {
+						$('.color_1').addClass('active');
+					}
+
 					exteriorOnHover(el);
 
 					console.log(temp, el, taps);
@@ -290,6 +294,7 @@
 					var el = $(event.target).context.className;
 					exteriorOnHover(el);
 				}, function() {
+					var el = $(event.target).context.className;
 					exteriorReset(el);
 				});
 
@@ -431,9 +436,11 @@
 			});
 
 			if (poolState == 'closed') {
-				$('.pool').hover(function() {
-					$(DOM.poolColors+' .color_1').toggleClass('active');
-				});
+				if (!mobileCheck) {
+					$('.pool').hover(function() {
+						$(DOM.poolColors+' .color_1').toggleClass('active');
+					});
+				}
 			}
 
 			$('.exterior-pool').bind('touchend click', function(){
