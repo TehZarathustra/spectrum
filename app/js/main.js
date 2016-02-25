@@ -863,6 +863,18 @@
 				add_modal('.add-gallery .item','image-pop',false,true);
 				add_modal('.info-button','info-pop',false,false);
 				add_modal('.jobs-link','jobs-pop',false,false);
+
+				$('.p-item-strips').bind(mobileCheck ? 'touchend' : 'click', function(e) {
+					owlGlobal = true;
+					var image = $(this).find('img').attr('src');
+					$('.image-pop img').attr('src', image);
+
+					e.preventDefault();
+
+					$.fn.fullpage.setAllowScrolling(false);
+					$('.page-overlay, .image-pop').fadeIn(400);
+					$('.image-pop').center();
+				});
 			});
 		})(jQuery);
 
