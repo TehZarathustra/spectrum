@@ -792,6 +792,9 @@
 				$('.m-close, .page-overlay').bind(mobileCheck ? 'touchend' : 'click', function(){
 					$('.page-overlay, .pops').fadeOut(500);
 					$.fn.fullpage.setAllowScrolling(true);
+					if ($('.close-portfolio').length) {
+						$('.close-portfolio').trigger(mobileCheck ? 'touchend' : 'click');
+					}
 				});
 
 				// pops duplicate
