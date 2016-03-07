@@ -74,6 +74,13 @@
 			}
 		})();
 
+		// video
+		(function() {
+			if (!mobileCheck) {
+				$('#video1').append('<source src="' + $('#video1').data('src') + '" type="video/mp4">');
+			}
+		})();
+
 		// fade-in-text
 		(function() {
 			var elText = $('.fade-in-text'),
