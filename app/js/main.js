@@ -225,7 +225,6 @@
 			if (mobileCheck) {
 				var taps = 0,
 					temp;
-
 				$(DOM.area).bind('touchend', function(e) {
 					e.preventDefault();
 					var el = $(event.target).context.className;
@@ -242,13 +241,11 @@
 
 					taps++;
 
-					if (el = 'pool') {
+					if (el == 'pool') {
 						$('.color_1').addClass('active');
 					}
 
 					exteriorOnHover(el);
-
-					console.log(temp, el, taps);
 
 					if (taps === 2 && temp === el) {
 						switch(el) {
