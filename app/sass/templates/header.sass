@@ -59,7 +59,7 @@ html
   padding: 10px 30px
   text-decoration: none
   text-transform: uppercase
-  font-weight: 300
+  font-weight: 400
   transition: background-color 0.3s ease
   &:hover
     background-color: #454ec2
@@ -121,7 +121,7 @@ html
     height: 0
     +transition(1s)
     padding: 0 20px
-    +f($sfn,4em,300,#fff)
+    +f($sfn,4em,200,#fff)
     overflow: hidden
     > p
       margin-top: 0
@@ -149,7 +149,7 @@ html
       -moz-transform: scaleX(1)
       -ms-transform: scaleX(1)
   p
-    +f($mfn,1em,300,#fff)
+    +f($sfn,1em,400,#fff)
     &.quote
       opacity: .8
       font-size: 1.2em
@@ -159,7 +159,7 @@ html
       margin: 20px
       font-family: 'Stalemate', cursive
       .normal
-        +f($mfn,.4em,300,#fff)
+        +f($sfn,.4em,400,#fff)
 
 a.nav-link.jobs-link
   position: absolute
@@ -203,7 +203,7 @@ a.nav-link.jobs-link
     left: -2px
     opacity: 0
     +transition(.5s)
-    +f($mfn,1.2em,300,#fff)
+    +f($sfn,1.2em,400,#fff)
   &:hover
     &:after
       opacity: 1
