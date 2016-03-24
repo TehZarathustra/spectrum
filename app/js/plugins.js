@@ -109,6 +109,9 @@
 			options.wheelStep = mobileCheck ? 40 : 10;
 			return oldSlimScroll.apply(this, [options] );
 		};
+		$('.scroll-down').bind(mobileCheck ? 'touchend' : 'click', function() {
+			$.fn.fullpage.moveSectionDown();
+		})
 		$('.fullpage').fullpage({
 			anchors:['firstPage', 'secondPage',
 			'thirdPage', 'fourthPage', 'fifthPage',

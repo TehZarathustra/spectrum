@@ -653,6 +653,8 @@
     height: 15%
     bottom: 3%
     // background: red
+    .pulse
+      top: 0
   .ex-bar
     width: 30%
     height: 15%
@@ -1212,7 +1214,7 @@ html
   display: none
 
 .scroll-down
-  pointer-events: none
+  cursor: pointer
   .mouse
     visibility: hidden
 
@@ -3004,8 +3006,8 @@ span.close-portfolio
   +transition(.6s)
   span
     display: block
-    width: 5px + 1
-    height: 5px + 1
+    width: 30px
+    height: 30px
     -ms-transform: rotate(45deg)
     -webkit-transform: rotate(45deg)
     transform: rotate(45deg)
@@ -3034,16 +3036,6 @@ span.close-portfolio
     -moz-animation-delay: .1s
     -webkit-animation-direction: alternate
 
-  .doi
-    -webkit-animation-delay: .2s
-    -moz-animation-delay: .2s
-    -webkit-animation-direction: alternate
-
-  .trei
-    -webkit-animation-delay: .3s
-    -moz-animation-delay: .3s
-    -webkit-animation-direction: alternate
-
   .mouse
     height: 38px
     width: 21px
@@ -3051,6 +3043,20 @@ span.close-portfolio
     transform: none
     border: 2px solid white
     top: 170px
+
+  .unu-bottom:before
+    content: 'scroll down'
+    white-space: nowrap
+    position: absolute
+    top: 20px
+    margin-left: -50px
+    color: #fff
+    font-family: 'open sans'
+    text-transform: uppercase
+    text-align: center
+    font-weight: 300
+    letter-spacing: 4px
+
 
   .wheel
     height: 5px

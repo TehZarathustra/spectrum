@@ -130,8 +130,8 @@
   +transition(.6s)
   span
     display: block
-    width: 5px + 1
-    height: 5px + 1
+    width: 30px
+    height: 30px
     -ms-transform: rotate(45deg)
     -webkit-transform: rotate(45deg)
     transform: rotate(45deg)
@@ -160,16 +160,6 @@
     -moz-animation-delay: .1s
     -webkit-animation-direction: alternate
 
-  .doi
-    -webkit-animation-delay: .2s
-    -moz-animation-delay: .2s
-    -webkit-animation-direction: alternate
-
-  .trei
-    -webkit-animation-delay: .3s
-    -moz-animation-delay: .3s
-    -webkit-animation-direction: alternate
-
   .mouse
     height: 38px
     width: 21px
@@ -177,6 +167,20 @@
     transform: none
     border: 2px solid white
     top: 170px
+
+  .unu-bottom:before
+    content: 'scroll down'
+    white-space: nowrap
+    position: absolute
+    top: 20px
+    margin-left: -50px
+    color: #fff
+    font-family: 'open sans'
+    text-transform: uppercase
+    text-align: center
+    font-weight: 300
+    letter-spacing: 4px
+
 
   .wheel
     height: 5px
