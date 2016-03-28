@@ -113,10 +113,6 @@
 			$.fn.fullpage.moveSectionDown();
 		})
 		$('.fullpage').fullpage({
-			anchors:['firstPage', 'secondPage',
-			'thirdPage', 'fourthPage', 'fifthPage',
-			'sixthPage', 'seventhPage', 'eigthPage',
-			'ninthPage', 'tenthPage', 'eleventhPage'],
 			scrollOverflow: true,
 			slidesNavigation: false,
 			navigation: false,
