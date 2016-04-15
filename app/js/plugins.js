@@ -233,9 +233,6 @@
 		});
 
 		// header video
-		setTimeout(function() {
-			$('.about-btn').trigger(mobileCheck ? 'touchend' : 'click');
-		},200)
 		if (!mobileCheck) {
 			if ($("#event-video").length) {
 				$("#event-video").YTPlayer();

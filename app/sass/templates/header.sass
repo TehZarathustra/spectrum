@@ -84,14 +84,10 @@ html
   overflow: hidden
 
 .about-btn
-  margin-top: 150px
   &:hover
     .btn
       background: #C8CEFF
       box-shadow: 0 0 150px 30px #7D96E0
-
-.hide-index
-  display: none
 
 .scroll-down
   cursor: pointer
@@ -105,20 +101,27 @@ html
   position: relative
   padding-top: 20px
   z-index: 2
-  opacity: 0
+  // opacity: 0
   +transition(.5s)
   .index-sign
     text-align: center
-    display: none
+    // display: none
     padding: 0 1em
-    opacity: 0
+    // opacity: 0
     +transition(.5s)
     &.show-s
       display: block
     &.active
       opacity: 1
-  .text
+  .description-text
     height: 0
+    overflow: hidden
+    +transition(1s)
+    +f($sfn,1em,200,#fff)
+    &.active
+      height: 220px
+  .text
+    // height: 0
     +transition(1s)
     padding: 0 20px
     +f($sfn,4em,200,#fff)
@@ -160,6 +163,9 @@ html
       font-family: 'Stalemate', cursive
       .normal
         +f($sfn,.4em,400,#fff)
+  .btn-cont
+    margin-top: 0
+    margin-bottom: 100px
 
 a.nav-link.jobs-link
   position: absolute
